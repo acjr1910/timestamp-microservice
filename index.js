@@ -2,13 +2,17 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
-const port =
-  process.env.NODE_ENV == "development"
-    ? process.env.PORT_DEV
-    : process.env.PORT_PROD;
+const timestamp = require("./routes/timestamp");
+
+app.use("/api/timestamp", timestamp);
 
 app.get("/", (req, res) => {
   res.send("Hello Timestamp Microservice");
 });
+
+const port =
+  process.env.NODE_ENV == "development"
+    ? process.env.PORT_DEV
+    : process.env.PORT_PROD;
 
 app.listen(port, () => console.log(`Listening on port ${port}...`));
