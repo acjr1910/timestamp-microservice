@@ -7,7 +7,7 @@ const timestamp = require("./routes/timestamp");
 app.use("/api/timestamp", timestamp);
 
 app.get("/", (req, res) => {
-  res.send("Hello Timestamp Microservice");
+  res.send("Home - Timestamp Microservice");
 });
 
 const port =

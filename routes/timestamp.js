@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 
 router.get("/:date", validate, (req, res) => {
   const { date } = req.params;
-  res.send(`send timestamp ${date}`);
+  res.json({ unix: Date.parse(date), utc: new Date(date).toUTCString() });
 });
 
 module.exports = router;
