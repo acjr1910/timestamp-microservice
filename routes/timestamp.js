@@ -1,14 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const validate = require("../middleware/validate");
+const validateTimestamp = require("../middleware/validateTimestamp");
 
 router.get("/", (req, res) => {
-  res.send("send current date in unix and utc");
+  const unix = Date.parse(new Date());
+  const utc = new Date().toUTCString();
+
+  res.json({ unix, utc });
 });
 
-router.get("/:date", validate, (req, res) => {
+router.get("/:date", validateTimestamp, (req, res) => {
+  const { isUtc } = req;
   const { date } = req.params;
-  res.json({ unix: Date.parse(date), utc: new Date(date).toUTCString() });
+
+  const unix = isUtc ? Date.parse(date) : Number(date);
+  const utc = new Date(isUtc ? date : Number(date)).toUTCString();
+
+  res.json({ unix, utc });
 });
 
 module.exports = router;
