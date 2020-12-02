@@ -1,7 +1,7 @@
 {
   "name": "timestamp-microservice",
   "version": "1.0.0",
-  "description": "",
+  "description": "An FCC Backend Challenge",
   "main": "server.js",
   "scripts": {
     "test": "jest",
@@ -12,8 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/ajnior/timestamp-microservice.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Agnaldo C. Junior",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ajnior/timestamp-microservice/issues"
@@ -27,5 +26,11 @@
   },
   "devDependencies": {
     "jest": "^26.6.3"
-  }
+  },
+  "keywords": [
+		"node",
+		"hyperdev",
+		"express",
+		"freecodecamp"
+	]
 }
