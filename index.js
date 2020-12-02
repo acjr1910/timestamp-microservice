@@ -4,6 +4,7 @@ const app = express();
 
 const timestamp = require("./routes/timestamp");
 
+app.use(express.static("public"));
 app.use("/api/timestamp", timestamp);
 
 app.get("/", (req, res) => {
